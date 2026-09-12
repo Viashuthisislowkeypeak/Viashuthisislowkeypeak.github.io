@@ -1,0 +1,544 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>this took WAYYY to long </title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #FFD1DC;
+            color: #202122;
+        }
+
+        /* MAIN FONT */
+        h1, h2, .logo, .infobox-title {
+            font-family: "Janda Happy Day", "Comic Sans MS", cursive;
+        }
+
+        /* TOP BAR */
+        header {
+            background: white;
+            border-bottom: 3px solid #FFD1DC;
+            padding: 10px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+            display: block;
+        }
+
+        .search {
+            display: flex;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 9px;
+            border: 2px solid #FFD1DC;
+            font-size: 14px;
+            background: white;
+        }
+
+        .search button {
+            padding: 9px 15px;
+            background: #FFD1DC;
+            border: 2px solid #FFD1DC;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search button:hover {
+            background: white;
+        }
+
+        /* LAYOUT */
+        .layout {
+            display: flex;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        aside {
+            width: 220px;
+            padding: 30px 20px;
+            border-right: 2px solid white;
+            min-height: calc(100vh - 60px);
+            background: #FFD1DC;
+        }
+
+        aside h3 {
+            font-size: 14px;
+            border-bottom: 2px solid white;
+            padding-bottom: 8px;
+        }
+
+        aside a {
+            display: block;
+            color: #202122;
+            text-decoration: none;
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            padding: 30px 35px;
+            background: white;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* TITLE */
+        h1 {
+            font-size: 38px;
+            font-weight: normal;
+            border-bottom: 3px solid #FFD1DC;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 27px;
+            font-weight: normal;
+            border-bottom: 2px solid #FFD1DC;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #d94f70;
+        }
+
+        /* INFOBOX */
+        .infobox {
+            width: 300px;
+            float: right;
+            margin: 0 0 20px 25px;
+            border: 3px solid #FFD1DC;
+            background: white;
+            font-size: 14px;
+        }
+
+        .infobox-title {
+            background: #FFD1DC;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .infobox-image {
+            height: 180px;
+            background: #FFD1DC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #202122;
+            text-align: center;
+        }
+
+        .infobox table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox td {
+            padding: 7px;
+            border-top: 1px solid #FFD1DC;
+            vertical-align: top;
+        }
+
+        .infobox td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        /* NOTICE */
+        .notice {
+            border: 2px solid #FFD1DC;
+            background: #FFD1DC;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        /* LISTS */
+        li {
+            margin: 8px 0;
+        }
+
+        /* QUOTE */
+        blockquote {
+            border-left: 5px solid #FFD1DC;
+            margin: 20px 0;
+            padding: 5px 20px;
+            color: #54595d;
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        footer {
+            clear: both;
+            border-top: 2px solid #FFD1DC;
+            margin-top: 40px;
+            padding: 25px 0;
+            font-size: 13px;
+            color: #54595d;
+        }
+
+        /* SECRET BUTTON */
+        .secret {
+            margin-top: 30px;
+            padding: 12px;
+            background: #b19cd9;
+            border: 2px solid #b19cd9;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .secret:hover {
+            background: white;
+        }
+
+        #secretMessage {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: #FFD1DC;
+            border: 2px solid #FFD1DC;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            aside {
+                display: none;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            header {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        Totally Real Wiki
+        <span>The definitely trustworthy encyclopedia</span>
+    </div>
+
+    <div class="search">
+        <input type="text" id="searchBox" placeholder="Search Totally Real Wiki...">
+        <button onclick="searchWiki()">Search</button>
+    </div>
+</header>
+
+
+<div class="layout">
+
+    <aside>
+        <h3>Navigation</h3>
+
+        <a href="#top">Main page</a>
+        <a href="#early">Early life</a>
+        <a href="#personality">Personality</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#friends">Friends</a>
+        <a href="#trivia">Trivia</a>
+
+        <h3>Related pages</h3>
+
+        <a href="#">Friend Group</a>
+        <a href="#">School</a>
+        <a href="#">The Lore</a>
+        <a href="#">Inside Jokes</a>
+
+        <h3>Tools</h3>
+
+        <a href="#">What links here</a>
+        <a href="#">Random page</a>
+        <a href="#">Special pages</a>
+    </aside>
+
+
+    <main id="top">
+
+        <div class="notice">
+            <strong>DISCLAIMER:</strong>
+            This page is completely accurate and absolutely not written by
+            [Leonela] as a birthday gift.
+        </div>
+
+
+        <h1>this took WAYYY to long pls</h1>
+
+
+        <!-- INFOBOX -->
+        <div class="infobox">
+
+            <div class="infobox-title">
+                Leonela
+            </div>
+
+            <div class="infobox-image">
+                📷<br>
+                Put a funny picture here
+            </div>
+
+            <table>
+                <tr>
+                    <td>Full name</td>
+                    <td>[]</td>
+                </tr>
+
+                <tr>
+                    <td>Born</td>
+                    <td>24 September 2013</td>
+                </tr>
+
+                <tr>
+                    <td>Known for</td>
+                    <td>Being the main character and being to smart for her own good</td>
+                </tr>
+
+                <tr>
+                    <td>Occupation</td>
+                    <td>Professional yapper and badminton player</td>
+                </tr>
+
+                <tr>
+                    <td>Years active</td>
+                    <td>2013–present</td>
+                </tr>
+
+                <tr>
+                    <td>Friends</td>
+                    <td>Maya, Leonela, Crystabell, Marcelina™</td>
+                </tr>
+
+                <tr>
+                    <td>Enemies</td>
+                    <td>Mr. Attor, Mr. stevens, the french teacher idk how to spell there names</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <p>
+            <strong>[Viashu]</strong> is a [Best friend],
+            best known for Doing the same hairstyal EVERYDAY.
+            They are considered by absolutely nobody to be a normal person.
+        </p>
+
+        <p>
+            [Viashu] is also a founding member of the
+            <a href="#friends">Friend Group</a>, where they have achieved
+            several completely unnecessary but impressive accomplishments.
+        </p>
+
+
+        <h2 id="early">Early life</h2>
+
+        <p>
+            Viashu was born in  on 24 september 2013.
+            From a young age, they showed signs of becoming the person
+            everyone knows today.
+        </p>
+
+        <p>
+            According to extremely reliable sources AKA me, Viashu
+            was already Mentaly unstabe at an early age, an instance of this is that she at a rose from her garden (Idc what you say I think it WERID).
+        </p>
+
+
+        <h2 id="personality">Personality</h2>
+
+        <p>
+            Viashu is generally described as:
+        </p>
+
+        <ul>
+            <li>Annoying</li>
+            <li>Funny</li>
+            <li>LOUD</li>
+            <li>Extremely questionable at times</li>
+        </ul>
+
+        <blockquote>
+            "Yeah, but like..."
+            — Viashu, allegedly
+        </blockquote>
+
+
+        <h2 id="achievements">Achievements</h2>
+
+        <p>
+            Throughout their career, Viashu has accomplished
+            numerous things, including:
+        </p>
+
+        <ol>
+            <li>Surviving Leonela and Crystabell being badman</li>
+            <li>Playing badminton</li>
+            <li>Thursdays...</li>
+            <li>Spending way too much time Complaning</li>
+            <li>Somehow becoming everyone's problem</li>
+        </ol>
+
+
+        <h2 id="friends">Friend group</h2>
+
+        <p>
+            Viashu is part of a highly respected organisation
+            known as <strong>THE OGs</strong>.
+        </p>
+
+        <p>
+            The group is responsible for numerous events, conversations,
+            inside jokes and incidents that will probably never be
+            explained to outsiders.
+        </p>
+
+        <ul>
+            <li><strong>Milania</strong> —creator</li>
+            
+        </ul>
+
+
+        <h2 id="trivia">Trivia</h2>
+
+        <ul>
+            <li>She is a teachers pet no matter the teacher</li>
+            <li>She is good at sports with rakets like tennis and badminton</li>
+            <li>She somw how likes...math</li>
+            <li>She hates cross country running</li>
+            <li>Has said "Ugh" approximately 3,829 times.</li>
+            <li>Wikipedia editors are currently investigating.</li>
+        </ul>
+
+
+        <h2>References</h2>
+
+        <ol>
+            <li>Leonela], personal observation.</li>
+            <li>The Friend Group Archives.</li>
+            <li>Evidence that definitely exists.</li>
+            <li>Trust me bro.</li>
+        </ol>
+
+
+        <button class="secret" onclick="showSecret()">
+            ⚠️ DO NOT CLICK THIS
+        </button>
+
+        <div id="secretMessage">
+            YOU ACTUALLY CLICKED IT.
+
+            <br><br>
+
+            Anyway... you're an amazing friend.
+            Glad you're here. ❤️ Your still annoying tho 
+        Im gonna sned your mugs to the gc one day just you wait
+        </div>
+
+
+        <footer>
+            This page was created as a friendship gift and is not affiliated
+            with Wikipedia in any way.
+
+            <br><br>
+
+            Last edited: Idk bro
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script>
+
+    function showSecret() {
+        document.getElementById("secretMessage").style.display = "block";
+    }
+
+
+    function searchWiki() {
+
+        let search = document
+            .getElementById("searchBox")
+            .value
+            .toLowerCase();
+
+        if (search.trim() === "") {
+            alert("Please enter something to search.");
+            return;
+        }
+
+        if (
+            search.includes("Viashu") ||
+            search.includes("Thats it bro")
+        ) {
+            alert(
+                "Search result: Viashu\n\n" +
+                "Congratulations. You found them."
+            );
+        } else {
+            alert(
+                "No results found.\n\n" +
+                "Try searching for Viashu aka annoying math girl."
+            );
+        }
+    }
+
+</script>
+
+</body>
+</html>
+```
