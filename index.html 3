@@ -15,8 +15,8 @@
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background: #b19cd9;
-            color: #b19cd9;
+            background: #FFD1DC;
+            color: #202122;
         }
 
         /* MAIN FONT */
